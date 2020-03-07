@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">    </head>
+        <style>
+            body {
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+    <br><br>
+      <h1>Do Math!</h1>
+      <br>
+      <form action='/math' method='get'>
+      <h3>Select an Operation</h3>
+      <select name="operation">
+          <option>Add</option>
+          <option>Subract</option>
+          <option>Multiply</option>
+          <option>Divide</option>
+      </select>
+      <br>
+      <br>
+      <label>1st Number</label>
+      <input name='num1' type='text'>
+      <br>
+      <label>2nd Number</label>
+      <input name='num2' type='text'>
+      <br>
+      <button type='submit'>Do the Math</button>
+    </form>        
+    </body>
+</html>
