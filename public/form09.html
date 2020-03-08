@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Postal Rate Calculator Form</title>
+</head>
+<body>
+    <form action="/getRate" method="GET">
+        Enter the item's weight in ounces (oz): <input type="text" name="weight"><br>
+        <span>Select the type of mail:</span>
+        <select name="mail_type">
+            <option value="Letters (Stamped)">Letters (Stamped)</option>
+            <option value="Letters (Metered)">Letters (Metered)</option>
+            <option value="Large Envelopes (Flats)">Large Envelopes (Flats)</option>
+            <option value="First-Class Package Service - Retail">First-Class Package Service - Retail</option>
+        </select><br>
+        <button type="submit" value="calculate">Submit</button>
+    </form>
+</body>
+</html>
