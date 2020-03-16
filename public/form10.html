@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Milestone 1 Bryan Heder</title>
+</head>
+<body>
+    <form action="" onsubmit="" method="GET">
+        <input type="text" name="gameId">
+        <button type="submit" value="1" onclick="getGame(this.value)">Get Game</button></br>
+    </form>
+    <ul id="gamesList"></ul>
+    <script>
+        function getGame(gameId) {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("gamesList").innerHTML = this.responseText;
+                }
+                if (this.status == 404) {
+                    document.getElementById("gamesList").innerHTML = "Error 404! Page not found...?";
+                }
+            };
+            xhttp.open("GET", "/getGame?gameId=" + gameId, true);
+            xhttp.send();
+        };
+    </script>
+</body>
+</html>
