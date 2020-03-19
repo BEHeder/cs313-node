@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Activity 11 Bryan Heder</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#submit").click(function(){
+                // this is my API key for the Open Movie Database: cd94230d
+                // console.log($("#searchTerms").val())
+                // alert("Value: " + $("#searchTerms").val())
+                var URL = "http://www.omdbapi.com/?apikey=cd94230d&s=" + $("#searchTerms").val()
+                console.log(URL)
+                $.getJSON(URL, function(result, status){
+                    // console.log("Title: " + data + "Status: " + status)
+                    console.log(status)
+                    console.log(result)
+                    // $.each(result, function(i, field){
+                    //     console.log(field)
+                    //     $("#searchResults").append(field)
+                    // })
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+    <input type="text" id="searchTerms" placeholder="Search..."></br>
+    <button id="submit">Search</button>
+    <div id="searchResults"></div>
+
+    <!-- The following is the teacher's solution for the jQuery version. -->
+    <!-- 
+        <!DOCTYPE html>
+<html>
+<head>
+	<title>Movie Search</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="movies-jquery.js"></script>
+
+</head>
+<body>
+
+	<h1>Movie Search (jQuery)</h1>
+
+	<p>Please enter a movie title to search:</p>
+	<input type="text" id="txtSearch">
+	<button onclick="search();">Search</button>
+
+	<div id="divResults">
+		<h2>Results</h2>
+		<ul id="ulResults">
+		</ul>
+	</div>
+
+</body>
+</html>
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.js file
+function search() {
+  // Get the value from the search box
+  var searchString = $('#txtSearch').val();
+  console.log('Searching for: ' + searchString);
+
+  // Set up the parameters to send to the API
+  var params = { s: searchString, apikey: 'fill_this_in_with_the_correct_key' };
+
+  // Use jQuery to make the get request
+  $.get('http://www.omdbapi.com/', params, function(data, status) {
+    // For debugging purposes, make a note that we're back
+    console.log('Back from server with the following results:');
+    console.log(status);
+    console.log(data);
+
+    updateResultList(data);
+  });
+}
+
+function updateResultList(data) {
+  if (data.Search && data.Search.length > 0) {
+    var resultList = $('#ulResults');
+    resultList.empty();
+    
+    // you could use a forEach here as well...
+    for (var i = 0; i < data.Search.length; i++) {
+      var title = data.Search[i].Title;
+      resultList.append('<li><p>' + title + '</p></li>');
+    }
+  }
+}
+     -->
+</body>
+</html>
