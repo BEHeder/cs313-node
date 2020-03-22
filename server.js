@@ -22,4 +22,14 @@ express()
     res.sendFile('form10.html', { root: __dirname + "/public"})
   })
   .get('/getGame', gamesEngine.getGame)
+  .get('/week11', function(req,res) {
+    res.sendFile('signIn11.html', {root: __dirname + "/public"})
+  })
+  .get('/gamesList11', function(req,res) {
+    res.sendFile('gamesList11.html', {root: __dirname + "/public"})
+  })
+  .get('/gameSearch11', function(req,res) {
+    res.sendFile('gameSearch11.html', {root: __dirname + "/public"})
+  })
+  .get('/getGames', gamesEngine.getGames)
   .listen(PORT, () => console.log(`Listening on ${PORT}`))

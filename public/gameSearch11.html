@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Search Page W11</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script>
+        // $(document).ready(function(){
+            function searchGames(){
+                var searchTerms = $("#searchTerms").val()
+                console.log("Searching for this game: " + searchTerms)
+                var params = {gameId: searchTerms}
+                $.get("./getGame", params, function(data, status) {
+                    console.log("Back from server with these results:")
+                    console.log(status)
+                    console.log(data)
+                    var results = $("#searchResults")
+                    results.empty()
+                    for (var i = 0; i < data.length; i++) {
+                        var Name = JSON.stringify(data[i].name)
+                        results.append("<li>" + Name + "</li>")
+                    }
+                })
+            }
+        // })
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Game Search By ID</h1>
+        <div><a href="./gamesList11.html">Game Search</a></div>
+        <input type="text" id="searchTerms" name="gameId"></br>
+        <button onclick="searchGames();">Search</button>
+        <ul id="searchResults"></ul>
+    </div>
+</body>
+</html>
