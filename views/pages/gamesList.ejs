@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Games List Page</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            console.log("Beginning to load games...")
+            $.get("./getGames", function(data, status) {
+                console.log("Back from server with these games:")
+                console.log(status)
+                console.log(data)
+                var results = $("#listOfGames")
+                results.empty()
+                for (var i = 0; i < data.length; i++) {
+                    var Name = JSON.stringify(data[i].name)
+                    results.append("<li>" + Name + "</li>")
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Games List</h1>
+        <div><a href="./gameSearch11">Game Search</a></div>
+        <ul id="listOfGames"></ul>
+    </div>
+</body>
+</html>

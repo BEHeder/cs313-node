@@ -4,9 +4,11 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "bcrypt": "^4.0.1",
     "dotenv": "^8.2.0",
     "ejs": "^3.0.1",
     "express": "^4.17.1",
+    "express-session": "^1.17.0",
     "html": "^1.0.0",
     "pg": "^7.18.2",
     "through2-map": "^3.0.0"
