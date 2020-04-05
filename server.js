@@ -48,7 +48,9 @@ express()
   .get('/getGames', gamesEngine.getGames)
   .get('/signIn', function(req,res,next){
     res.sendFile('signIn.html', {root: __dirname + "/public"})
-    res.redirect('/gamesList')
+    if (req.session.user) {
+      res.redirect('/gamesList')
+    }
   })
   .post('/signIn2', accountEngine2.handleSignIn)
   .get('/gamesList', function(req,res) {
